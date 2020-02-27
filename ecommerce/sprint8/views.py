@@ -6,4 +6,14 @@ from django.views.generic import View, TemplateView, ListView, UpdateView, Creat
 
 # Create your views here.
 class Test(TemplateView):
-    template_name = 'sprint8/index.html' 
+    template_name = 'sprint8/index.html'
+
+class ListaCategoriaProducto(ListView):
+    model = Categoria
+    template_name = 'sprint8/listar.html'
+
+    def post(self,request,pk,*args,**kwargs):
+        objects=Categoria.objects.get(id=pk).prefetch_related('productos')
+        context['categorias']=objects
+        return context
+        

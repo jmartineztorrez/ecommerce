@@ -1,0 +1,9 @@
+
+{% for categoria in categorias %}
+    <div>nombre categoria</div>
+    {{categoria.nombre}}    
+    {% for producto in categoria.productos.all %}
+        <div>nombre producto</div>
+        {{producto.nombre}}
+    {% endfor %}
+{% endfor %}
