@@ -1,9 +1,9 @@
+hhbuh
 
-{% for categoria in categorias %}
-    <div>nombre categoria</div>
-    {{categoria.nombre}}    
-    {% for producto in categoria.productos.all %}
+
+    <div>nombre categoria</div>  
+    {% for producto in productos %}
         <div>nombre producto</div>
         {{producto.nombre}}
+         <div>des producto</div>{{producto.descripcion}}
     {% endfor %}
-{% endfor %}

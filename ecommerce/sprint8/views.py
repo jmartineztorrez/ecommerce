@@ -12,8 +12,16 @@ class ListaCategoriaProducto(ListView):
     model = Categoria
     template_name = 'sprint8/listar.html'
 
-    def post(self,request,pk,*args,**kwargs):
-        objects=Categoria.objects.get(id=pk).prefetch_related('productos')
-        context['categorias']=objects
+    def get_queryset(self, **kwargs):
+        parametro = self.kwargs.get('id',None)
+        queryset = Categoria.objects.filter(id=parametro) 
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context=super(ListaCategoriaProducto, self).get_context_data(**kwargs)
+        parametro = self.kwargs.get('id', None)
+        objects=Producto.objects.filter(categorias=parametro)
+        print(objects)
+        context['productos']=objects
         return context
         
