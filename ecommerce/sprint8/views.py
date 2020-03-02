@@ -20,8 +20,6 @@ class ListaCategoriaProducto(ListView):
     def get_context_data(self, **kwargs):
         context=super(ListaCategoriaProducto, self).get_context_data(**kwargs)
         parametro = self.kwargs.get('id', None)
-        objects=Producto.objects.filter(categorias=parametro)
-        print(objects)
-        context['productos']=objects
+        context['productos']=Producto.objects.filter(categorias=parametro)
         return context
         

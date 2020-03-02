@@ -17,7 +17,7 @@ class Producto(models.Model):
     precio = models.FloatField(null=True)     
     descripcion = models.CharField(max_length=200,null=True)     
     categorias = models.ForeignKey(Categoria, on_delete=models.CASCADE,null=True, related_name="productos")    
-    imagen = models.ImageField(upload_to = 'img/', default = 'pic_folder/None/no-img.jpg')
+    imagen = models.ImageField(upload_to = 'static/images/', default = 'pic_folder/None/no-img.jpg')
     
     class Meta:
         verbose_name = 'Producto'

@@ -1,9 +1,11 @@
-hhbuh
-
+{% load static %}
 
     <div>nombre categoria</div>  
+    
     {% for producto in productos %}
-        <div>nombre producto</div>
-        {{producto.nombre}}
-         <div>des producto</div>{{producto.descripcion}}
+        <div>Descripcion</div>
+        <div>{{producto.nombre}}</div>
+        <div>{{producto.precio}}</div>
+        <div>{{producto.descripcion}}</div>
+        <div><img src="../../static/{{producto.imagen}}"></div>
     {% endfor %}
