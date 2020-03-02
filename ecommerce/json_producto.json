@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5e57df5de8d72a519629f030"},"id":{"$numberInt":"1"},"nombre":"Casco","precio":{"$numberInt":"100"},"descripcion":"Casco to' guapo","categorias_id":{"$numberInt":"1"},"imagen":"images/casco.jpg"}
+{"_id":{"$oid":"5e59191cab2905a964b7f36e"},"id":{"$numberInt":"2"},"nombre":"asd","precio":{"$numberInt":"222"},"descripcion":"wda","categorias_id":{"$numberInt":"1"},"imagen":"images/4.jpg"}

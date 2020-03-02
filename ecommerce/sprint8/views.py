@@ -5,8 +5,14 @@ from django.views.generic import View, TemplateView, ListView, UpdateView, Creat
 
 
 # Create your views here.
-class Test(TemplateView):
+class Test(ListView):
+    model = Categoria
     template_name = 'sprint8/index.html'
+    context_object_name = 'categorias'
+    queryset = Categoria.objects.all()
+
+class Cesta(TemplateView):
+    template_name = 'sprint8/cesta.html'
 
 class ListaCategoriaProducto(ListView):
     model = Categoria

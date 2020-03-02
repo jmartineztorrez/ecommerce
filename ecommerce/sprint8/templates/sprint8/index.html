@@ -1,3 +1,4 @@
+{% extends 'sprint8/links.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
@@ -47,7 +48,7 @@
 
 
 </head>
-
+{% block main %}
 <body class="js">
 
     <!-- Preloader 
@@ -74,7 +75,6 @@
                         <!-- Top Right -->
                         <div class="right-content">
                             <ul class="list-main">
-                                <li><i class="ti-user"></i> <a href="#">My account</a></li>
                                 <li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
                             </ul>
                         </div>
@@ -165,10 +165,10 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="all-category">
-                                <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
+                                <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIAS</h3>
                                 <ul class="main-category">
-									{% for producto in productos %}
-										<li><a href="#">{{categorias.nombre}}</a></li>
+									{% for categoria in categorias %}
+										<li><a href="{% url 'sprint8:listar' categoria.id %}">{{categoria.nombre}}</a></li>
                 					{% endfor %}     
                                 </ul>
                             </div>
@@ -211,10 +211,10 @@
                             <div class="row">
                                 <div class="col-lg-7 col-12">
                                     <div class="hero-text">
-                                        <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-                                        <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
+                                        <h1><span>50% DE DESCUENTO</span>Pechera muy guay</h1>
+                                        <p><br><br></p>
                                         <div class="button">
-                                            <a href="#" class="btn">Shop Now!</a>
+                                            <a href="#" class="btn">Compra!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -609,6 +609,7 @@
                             </footer>
                         </div>
                         <!-- /End Footer Area -->
+						{% endblock main %}
 
                         <!-- Jquery -->
                         <script src="{% static 'js/jquery.min.js' %}"></script>
