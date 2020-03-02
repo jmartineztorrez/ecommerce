@@ -1,11 +1,18 @@
-{% load static %}
 
-    <div>nombre categoria</div>  
-    
-    {% for producto in productos %}
+
+{% extends 'sprint8/index.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="container">
+            <div>nombre categoria</div>  
+                {% for producto in productos %}
         <div>Descripcion</div>
         <div>{{producto.nombre}}</div>
         <div>{{producto.precio}}</div>
         <div>{{producto.descripcion}}</div>
         <div><img src="../../static/{{producto.imagen}}"></div>
     {% endfor %}
+        </div>
+    </div>
+{% endblock body %}
