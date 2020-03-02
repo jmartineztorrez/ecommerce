@@ -1,4 +1,7 @@
+
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -47,6 +50,10 @@
 
 
 </head>
+
+
+{% block main %}
+
 <body class="js">
  
 	<div class="preloader">
@@ -164,9 +171,9 @@
                             <div class="all-category">
                                 <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIAS</h3>
                                 <ul class="main-category">
-									{% for categoria in categorias %}
-										<li><a href="{% url 'sprint8:listar' categoria.id %}">{{categoria.nombre}}</a></li>
-                					{% endfor %}     
+                                    {% for categoria in categorias %}
+                                    <li><a href="{% url 'sprint8:listar' categoria.id %}">{{categoria.nombre}}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -177,7 +184,7 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav right">
-                                                <li class="active"><a href="#">Home</a></li>
+                                                <li class="active"><a href="{% url index %}">Home</a></li>
                                                 <li><a href="#">Villa Tomillo</a></li>
                                                 <li><a href="contact.html">Contáctanos</a></li>
                                             </ul>
@@ -607,6 +614,8 @@
                             </footer>
                         </div>
                         <!-- /End Footer Area -->
+
+                        {% endblock main %}
 
                         <!-- Jquery -->
                         <script src="{% static 'js/jquery.min.js' %}"></script>
