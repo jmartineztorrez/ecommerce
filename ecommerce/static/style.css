@@ -777,7 +777,6 @@ Version:1.0
 	font-size: 22px;
 }
 .header.shop .main-category {
-	visibility: hidden;
 	position: absolute;
 	left: 0;
 	top: 64px;
