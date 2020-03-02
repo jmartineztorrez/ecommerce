@@ -3,6 +3,10 @@ from .models import *
 from .forms import ProductoForm
 from django.urls import reverse_lazy
 from django.views.generic import View, TemplateView, ListView, UpdateView, CreateView, DeleteView
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm 
 
 
 # Create your views here.
@@ -41,3 +45,4 @@ class AgregarProductoCesta(CreateView):
         parametro = self.kwargs.get('id', None)
         context['productos']=Producto.objects.filter(id=parametro)
         
+
