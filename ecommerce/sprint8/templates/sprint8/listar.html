@@ -1,9 +1,14 @@
-hhbuh
+{% extends 'sprint8/index.html' %}
 
-
-    <div>nombre categoria</div>  
-    {% for producto in productos %}
-        <div>nombre producto</div>
-        {{producto.nombre}}
-         <div>des producto</div>{{producto.descripcion}}
-    {% endfor %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="container">
+            <div>nombre categoria</div>  
+                {% for producto in productos %}
+                    <div>nombre producto</div>
+                    {{producto.nombre}}
+                    <div>des producto</div>{{producto.descripcion}}
+                {% endfor %}
+        </div>
+    </div>
+{% endblock body %}
