@@ -1,61 +1,47 @@
-
-
 {% extends 'sprint8/index.html' %}
-
 {% block body %}
-    <div class="product-area section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2>nombre categoria</h2>
-                    </div>
-                </div>
-            </div>
-            {% for producto in productos %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="product-info">
-                        <div class="tab-content" id="myTabContent">
-                            <!-- Start Single Tab -->
-                                <div class="tab-pane fade show active" id="man" role="tabpanel">
-                                    <div class="tab-single">
-                                        <div class="row">
-                                            <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-                                                <div class="single-product">
-                                                    <div class="product-img">
-                                                        <a href="product-details.html">
-                                                            <img class="default-img" src="../../static/{{producto.imagen}}" alt="#">                                            
-                                                        </a>
-                                                        <div class="button-head">
-                                                            <div class="product-action">
-                                                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                                <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                                            </div>
-                                                            <div class="product-action-2">
-                                                                <a title="Add to cart" href="#">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-content">
-                                                        <h3><a href="product-details.html">{{producto.nombre}}</a></h3>
-                                                        <h3><a href="product-details.html">{{producto.descripcion}}</a></h3>
-                                                        <div class="product-price">
-                                                                <span>{{producto.precio}}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>                                        
-                                        </div>
-                                    </div>
-                                </div>
-                            <!--/ End Single Tab -->
-                                <br>                            
+<div class="container">
+    <h2>Productos por Categoria</h2>
+
+
+    <div class="card-deck">
+        <div class="tab-pane fade show active" id="man" role="tabpanel">
+            <div class="tab-single">
+                <div class="row">
+                    {% for producto in productos %}
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <a href="product-details.html">
+                                <img class="default-img" src="../../static/{{producto.imagen}}" alt="#">
+                            </a>
+
+                        </div>
+                        <div class="button-head">
+                            <div class="product-action text-right">                                
+                                
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
+                                    class=" ti-shopping-cart"></i></a>
+
+                            </div>
+
+                        </div>
+                        <div class="product-content">
+                            <h5><a href="product-details.html"> <p class="text-uppercase font-weight-bold text-center">{{producto.nombre}}</p></a></h5>
+                            <hr>
+                            <h6><a href="product-details.html">  <p class="text-justify">{{producto.descripcion}}</p></a></h6>
+                            <hr>
+                            <div class="product-price">
+                                <span><p class="text-right font-weight-bold">{{producto.precio}} €</p></span>
+                            </div>
                         </div>
                     </div>
+
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
+
     </div>
+
+</div>
 {% endblock body %}
