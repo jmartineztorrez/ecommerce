@@ -1,5 +1,7 @@
-{% extends 'sprint8/links.html' %}
+
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -48,10 +50,12 @@
 
 
 </head>
-{% block main %}
-<body class="js">
 
-    <!-- Preloader 
+
+{% block main %}
+
+<body class="js">
+ 
 	<div class="preloader">
 		<div class="preloader-inner">
 			<div class="preloader-icon">
@@ -60,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-	 End Preloader -->
+	 
 
 
     <!-- Header -->
@@ -164,12 +168,12 @@
                 <div class="cat-nav-head">
                     <div class="row">
                         <div class="col-lg-3">
-                            <div class="all-category">
+                            <div class="all-category ">
                                 <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIAS</h3>
                                 <ul class="main-category">
-									{% for categoria in categorias %}
-										<li><a href="{% url 'sprint8:listar' categoria.id %}">{{categoria.nombre}}</a></li>
-                					{% endfor %}     
+                                    {% for categoria in categorias %}
+                                    <li><a href="{% url 'sprint8:listar' categoria.id %}">{{categoria.nombre}}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -180,7 +184,7 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav right">
-                                                <li class="active"><a href="#">Home</a></li>
+                                                <li class="active"><a href="{% url 'sprint8:index' %}">Home</a></li>
                                                 <li><a href="#">Villa Tomillo</a></li>
                                                 <li><a href="contact.html">Contáctanos</a></li>
                                             </ul>
@@ -227,7 +231,7 @@
         <!--/ End Single Slider -->
     </section>
     <!--/ End Slider Area -->
-    {% endblock body %}
+    
 
     <!-- Start Product Area -->
     <div class="product-area section">
@@ -516,6 +520,7 @@
                             </div>
                             <!-- Modal end -->
                             <br>
+							{% endblock body %}
                             <!-- Start Footer Area -->
                             <footer class="footer">
                                 <!-- Footer Top -->
@@ -609,7 +614,8 @@
                             </footer>
                         </div>
                         <!-- /End Footer Area -->
-						{% endblock main %}
+
+                        {% endblock main %}
 
                         <!-- Jquery -->
                         <script src="{% static 'js/jquery.min.js' %}"></script>
