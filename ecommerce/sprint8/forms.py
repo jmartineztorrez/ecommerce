@@ -85,11 +85,3 @@ class CestaForm(forms.ModelForm):
             'cantidad': 'Cantidad de Producto'
 
         }
-        widgets = {
-            'cantidad': forms.NumberInput(
-                attrs = {
-                    'class':'form-control',
-                    'id': 'cantidad'
-                }
-            )
-        }
