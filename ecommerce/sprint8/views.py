@@ -49,8 +49,14 @@ class AgregarProductoCesta(CreateView):
     model = Cesta
     form_class = CestaForm
     template_name = 'sprint8/agregar_a_cesta.html'
-    success_url= reverse_lazy('sprint8:listar')
-    
+    success_url= reverse_lazy('sprint8:index')
+
+    def get_context_data(self, **kwargs):
+        context=super(AgregarProductoCesta, self).get_context_data(**kwargs)
+        parametro = self.kwargs.get('pk', None)
+        context['productos']=Producto.objects.filter(id=parametro)
+        return context
+
     def form_valid(self,form):
         self.object = form.save(commit=False)
         producto= Producto.objects.get(pk = self.kwargs.get('pk',None))
