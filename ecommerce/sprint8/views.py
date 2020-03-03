@@ -51,11 +51,17 @@ class AgregarProductoCesta(CreateView):
         return super(AgregarProductoCesta,self).form_valid(form)    
 
 #Usuario
+class RegistroUsuario(CreateView):
+        model = User
+        template_name = "sprint8/register_usuario.html"
+        form_class= UserForm
+        success_url=reverse_lazy('sprint8:login')
+        
 class LoginUser(FormView):
         model = User
-        template_name='usuario/login.html'
+        template_name='sprint8/login.html'
         form_class=FormularioLogin
-        success_url=reverse_lazy('index')
+        success_url=reverse_lazy('sprint8:index')
         
         def dispatch(self, request, *args, **kwargs):
                 if request.user.is_authenticated:
@@ -65,6 +71,7 @@ class LoginUser(FormView):
         def form_valid(self,form):
                 login(self.request,form.get_user())
                 return super(LoginUser,self).form_valid(form)
+
 def logoutUsuario(request):
         logout(request)
         return HttpResponseRedirect('/accounts/login/')

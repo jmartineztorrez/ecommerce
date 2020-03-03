@@ -8,7 +8,7 @@ urlpatterns = [
     path('listar/<int:id>', ListaCategoriaProducto.as_view(), name="listar"),
     path('cesta/', Cesta.as_view(), name="cesta"),
     path('agregar_cesta/<int:pk>/<int:id>',AgregarProductoCesta.as_view(), name ='agregar_cesta'),
-    #path('registro/', RegistroUsuario.as_view(), name="registro")
+    path('registro/', RegistroUsuario.as_view(), name="registro"),
     path('accounts/login/',LoginUser.as_view(), name ='login'),
     path('logout',login_required(logoutUsuario), name ='logout'),
 ]

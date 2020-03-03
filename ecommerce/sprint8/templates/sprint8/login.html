@@ -1,4 +1,4 @@
-{% extends 'index.html' %} {% block body %}
+{% extends 'sprint8/index.html' %} {% block body %}
 <div class="container w-25 border border-primary">
     <h2 class="text-center">LOGIN</h2>
     <form method="POST">
@@ -7,7 +7,7 @@
             {{ form.as_p }}
         </div>
         <div class="modal-footer">
-            <a href="{% url 'index' %}" class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</a>
+            <a href="{% url 'sprint8:index' %}" class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</a>
             <button class="btn btn-primary" type="submit">Confirmar</button>
         </div>
     </form>

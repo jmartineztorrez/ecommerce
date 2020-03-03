@@ -1,15 +1,57 @@
-{% extends 'index.html' %} 
-{% block body %}
-<div class="container w-50">
-    <form action="{% url 'register' %}" method="POST">
+{% extends 'sprint8/index.html' %} {% block body %}
+<br><br>
+<div class="container w-50 border border-primary">
+    <br>
+    <h2 class="text-center">Registrar</h2>
+    <form method="POST">
         {% csrf_token %}
+
         <div class="modal-body">
-            {{ form.as_p }}
+            <!-- <p>
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" name="username" class="form-control" placeholder="Ingrese Nombre de Usuario" id="username" maxlength="150" autofocus required> 
+            {{form.username}}
+            <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+            </p>
+            <p><br>
+                <label for="first_name">Nombre:</label>
+                <input type="text" name="first_name" class="form-control" placeholder="Ingrese Nombre" id="first_name" maxlength="30">
+                {{form.first_name}}
+            </p>
+            <p><br>
+                <label for="last_name">Apellidos:</label>
+                <input type="text" name="last_name" class="form-control" placeholder="Ingrese Apellidos" id="last_name" maxlength="150">
+                {{form.last_name}}
+            </p>
+            <p><br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="form-control" placeholder="Ingrese Email" id="email" maxlength="254">
+                {{form.email}}
+            </p>
+            <p>
+                <br>
+                <label for="id_password1">Password:</label><br>
+                <input type="password" name="password1" required id="id_password1">
+            {{form.password1}}
+            <span class="helptext">
+                    <ul><li>Your password can&#39;t be too similar to your other personal information.</li>
+                        <li>Your password must contain at least 8 characters.</li>
+                        <li>Your password can&#39;t be a commonly used password.</li>
+                        <li>Your password can&#39;t be entirely numeric.</li>
+                    </ul>
+                </span></p>
+            <p>
+                <br>
+                <label for="id_password2">Password confirmation:</label><br>
+                <input type="password" name="password2" required id="id_password2">
+            {{form.password2}}<br>
+            <span class="helptext">Enter the same password as before, for verification.</span>
+            </p>-->{{form.as_p}}
         </div>
         <div class="modal-footer">
-            <a href="{% url 'index' %}" class="btn btn-danger" type="button">Cancelar</a>
+            <a href="{% url 'sprint8:index' %}" class="btn btn-danger">Cancelar</a>
             <button class="btn btn-primary" type="submit">Confirmar</button>
         </div>
     </form>
 </div>
-{% endblock body%}
+<br><br> {% endblock body%}
