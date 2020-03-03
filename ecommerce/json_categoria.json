@@ -1,3 +1,4 @@
-{"_id":{"$oid":"5e57d7b64138118d2cc86116"},"id":{"$numberInt":"1"},"nombre":"Yelmos"}
-{"_id":{"$oid":"5e57d7c24138118d2cc86118"},"id":{"$numberInt":"2"},"nombre":"Armaduras"}
+{"_id":{"$oid":"5e57d7b64138118d2cc86116"},"id":{"$numberInt":"1"},"nombre":"Armaduras completas"}
+{"_id":{"$oid":"5e57d7c24138118d2cc86118"},"id":{"$numberInt":"2"},"nombre":"Cascos"}
 {"_id":{"$oid":"5e57d7c94138118d2cc8611a"},"id":{"$numberInt":"3"},"nombre":"Escudos"}
+{"_id":{"$oid":"5e5d26b36174da3154e32888"},"id":{"$numberInt":"4"},"nombre":"Espadas"}
