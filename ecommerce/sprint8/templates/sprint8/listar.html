@@ -15,7 +15,7 @@
                         </div>
                         <div class="button-head">
                             <div class="product-action text-right">
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
+                                <a  onclick="abrir_modal_edicion('{% url 'sprint8:eliminar_libro' libro.id %}')"><i
                                     class=" ti-shopping-cart"></i></a>
                             </div>
                         </div>
@@ -35,8 +35,6 @@
                             <div class="product-price">
                                 <span><p class="text-right font-weight-bold">{{producto.precio}} €</p></span>
                             </div>
-
-
                         </div>
                         <!--/ End Single Tab -->
                         <br>
@@ -48,4 +46,19 @@
 
     </div>
 </div>
-{% endblock body %}
+<div class="modal fade" id="creacion" role="dialog">
+
+</div>
+
+{% endblock body %} 
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+
+    function abrir_modal_creacion(url) {
+        $('#creacion').load(url, function() {
+            $(this).modal('show');
+        });
+    }
+</script>
+{% endblock extrajs %}
