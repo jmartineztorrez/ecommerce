@@ -1,7 +1,12 @@
+
+from django import forms
+from .models import Producto
+
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import Cesta
+
 
 class FormularioLogin(AuthenticationForm):
     def __init__(self, *args, **kwargs):
@@ -70,8 +75,12 @@ class UserForm(UserCreationForm):
 
 class CestaForm(forms.ModelForm):
     class Meta:
+        model = Producto
+        fields = ['cantidad']
+
         model = Cesta
         fields = ['cantidad',]
+
         labels = {
             'cantidad': 'Cantidad de Producto'
 

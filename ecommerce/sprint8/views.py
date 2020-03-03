@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import *
+
+#from .forms import ProductoForm
+
 from django.urls import reverse_lazy
 from django.views.generic import View, TemplateView, ListView, UpdateView, CreateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -34,6 +37,13 @@ class ListaCategoriaProducto(ListView):
         context['productos']=Producto.objects.filter(categorias=parametro)
         context['categoriasId']=Categoria.objects.filter(id=parametro)
         return context
+
+
+class RegistroUsuario(CreateView):
+    model = User
+    template_name = 'sprint8/user.html'
+    form_class = UserCreationForm
+    success_url = reverse_lazy('sprint8:index')
 
 class AgregarProductoCesta(CreateView):
     model = Cesta

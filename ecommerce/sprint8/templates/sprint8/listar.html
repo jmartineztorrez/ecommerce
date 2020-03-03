@@ -1,7 +1,14 @@
  {% extends 'sprint8/index.html' %} 
  {% block body %}
 <div class="container">
-    <h2>Productos por Categoria</h2>
+<br/>
+    <h2>Categoria {{producto.nombre}}
+        {% for nombre_categoria in categoriasId %}
+            {{nombre_categoria.nombre}}
+        {% endfor %}
+    </h2>
+    <br>
+    </br>
     <div class="card-deck">
         <div class="tab-pane fade show active" id="man" role="tabpanel">
             <div class="tab-single">
