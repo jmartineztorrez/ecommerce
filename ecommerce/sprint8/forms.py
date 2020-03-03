@@ -1,9 +1,9 @@
 from django import forms
-from .models import Producto
+from .models import Cesta
 
-class ProductoForm(forms.ModelForm):
+class CestaForm(forms.ModelForm):
     class Meta:
-        model = Producto
+        model = Cesta
         fields = ['cantidad',]
         labels = {
             'cantidad': 'Cantidad de Producto'

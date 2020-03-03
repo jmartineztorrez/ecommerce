@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from .forms import ProductoForm
+from .forms import CestaForm
 from django.urls import reverse_lazy
 from django.views.generic import View, TemplateView, ListView, UpdateView, CreateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -36,13 +36,12 @@ class ListaCategoriaProducto(ListView):
         return context
 
 class AgregarProductoCesta(CreateView):
-    model = Producto
-    form_class = ProductoForm
+    model = Cesta
+    form_class = CestaForm
     template_name = 'sprint8/agregar_a_cesta.html'    
     
     def get_context_data(self, **kwargs):
         context=super(AgregarProductoCesta, self).get_context_data(**kwargs)
         parametro = self.kwargs.get('id', None)
-        context['productos']=Producto.objects.filter(id=parametro)
-        
+        context['productos']=Producto.objects.filter(id=parametro)      
 
