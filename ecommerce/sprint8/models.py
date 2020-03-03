@@ -29,8 +29,7 @@ class Producto(models.Model):
         return self.nombre  
 
 class Cesta (models.Model): 
-    cantidad =models.FloatField(null=True)     
-    total=models.FloatField(null=True)     
+    cantidad =models.FloatField(null=True)  
     productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
     clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)      
     
