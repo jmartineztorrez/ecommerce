@@ -8,7 +8,7 @@ from django.views.generic import View, TemplateView, ListView, UpdateView, Creat
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login,logout
 from django.contrib.auth.models import User
-from .forms import UserForm,FormularioLogin,CestaForm
+from .forms import UserForm,FormularioLogin,CestaForm,UserCreationForm
 from django.views.generic.edit import CreateView,FormView
 
 
@@ -41,7 +41,7 @@ class ListaCategoriaProducto(ListView):
 
 class RegistroUsuario(CreateView):
     model = User
-    template_name = 'sprint8/user.html'
+    template_name = 'sprint8/register_usuario.html'
     form_class = UserCreationForm
     success_url = reverse_lazy('sprint8:index')
 
@@ -54,7 +54,7 @@ class AgregarProductoCesta(CreateView):
     def form_valid(self,form):
         self.object = form.save(commit=False)
         producto= Producto.objects.get(pk = self.kwargs.get('pk',None))
-        usuario = User.objects.get(pk = self.kwargs.get('id',None))
+        usuario = User.objects.get(pk = 1)
         self.object.productos = producto
         self.object.clientes = usuario
         self.object.save()
