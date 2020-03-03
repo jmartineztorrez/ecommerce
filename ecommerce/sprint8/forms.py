@@ -1,10 +1,10 @@
-from django import forms
+"""from django import forms
 from .models import Producto
 
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ['cantidad',]
+        fields = ['cantidad']
         labels = {
             'cantidad': 'Cantidad de Producto'
 
@@ -17,3 +17,4 @@ class ProductoForm(forms.ModelForm):
                 }
             )
         }
+"""

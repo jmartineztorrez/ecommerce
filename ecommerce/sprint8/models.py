@@ -33,5 +33,6 @@ class Cesta (models.Model):
     total=models.FloatField(null=True)     
     productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
     clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)      
+    
     def __str__(self):         
         return self.nombre
