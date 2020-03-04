@@ -64,7 +64,22 @@ class AgregarProductoCesta(CreateView):
         self.object.productos = producto
         self.object.clientes = usuario
         self.object.save()
-        return super(AgregarProductoCesta,self).form_valid(form)    
+        return super(AgregarProductoCesta,self).form_valid(form)
+
+class ListarCesta(ListView):
+    model = Cesta
+    form_class = CestaForm
+    template_name = 'sprint8/cesta.html'
+    success_url = reverse_lazy('libro:index')
+
+    def get_context_data(self,**kwargs):
+        context = super(ListarCesta,self).get_context_data(**kwargs)
+        parametro = self.kwargs.get('pk', None)
+        producto = parametro.productos.id
+        context['producto_cesta'] = Cesta.objects.filter(clientes = parametro)
+        context['productos']=Producto.objects.filter(id=producto)
+        return context
+
 
 #Usuario
 class RegistroUsuario(CreateView):
@@ -90,4 +105,4 @@ class LoginUser(FormView):
 
 def logoutUsuario(request):
         logout(request)
-        return HttpResponseRedirect('/accounts/login/')
+        return HttpResponseRedirect('sprint8/accounts/login/')
