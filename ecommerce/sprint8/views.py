@@ -105,4 +105,4 @@ class LoginUser(FormView):
 
 def logoutUsuario(request):
         logout(request)
-        return HttpResponseRedirect('sprint8/accounts/login/')
+        return HttpResponseRedirect('accounts/login/')
