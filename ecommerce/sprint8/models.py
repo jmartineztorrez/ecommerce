@@ -28,10 +28,8 @@ class Producto(models.Model):
     def __str__(self):         
         return self.nombre  
 
-class Cesta (models.Model): 
+class Cesta(models.Model): 
     cantidad =models.FloatField(null=True)  
     productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
     clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)      
-    
-    def __str__(self):         
-        return self.nombre
+
