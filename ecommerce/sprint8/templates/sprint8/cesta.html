@@ -17,6 +17,7 @@
                             <th class="text-center">CANTIDAD</th>
                             <th class="text-center">TOTAL</th>
                             <th class="text-center"><i class="ti-trash remove-icon"></i></th>
+                            <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,4 +79,19 @@
     </div>
 </div>
 <!--/ End Shopping Cart -->
-{% endblock body %}
+<div class="modal fade" id="editar" role="dialog">
+
+</div>
+
+{% endblock body %} 
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+
+    function abrir_modal_editar(url) {
+        $('#editar').load(url, function() {
+            $(this).modal('show');
+        });
+    }
+</script>
+{% endblock extrajs %}
