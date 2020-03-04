@@ -19,12 +19,6 @@ class Test(ListView):
     context_object_name = 'categorias'
     queryset = Categoria.objects.all()
 
-class Cesta(ListView):
-    model = Categoria
-    template_name = 'sprint8/cesta.html'
-    context_object_name = 'categorias'
-    queryset = Categoria.objects.all()
-
 class ListaCategoriaProducto(ListView):
     model = Categoria
     template_name = 'sprint8/listar.html'
@@ -62,18 +56,16 @@ class AgregarProductoCesta(CreateView):
 
 class ListarCesta(ListView):
     model = Cesta
-    template_name = 'sprint8/cesta.html'
-    success_url = reverse_lazy('libro:index')
+    template_name='sprint8/cesta.html'
+    context_object_name = 'categorias'
+    queryset = Categoria.objects.all()
 
-    def get_context_data(self,**kwargs):
-        context = super(ListarCesta,self).get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context=super(ListarCesta, self).get_context_data(**kwargs)
         parametro = self.kwargs.get('pk', None)
-        producto = parametro.productos.id
-        print('id'+str(producto))
-        print('pk'+str(parametro))
-        context['producto_cesta'] = Cesta.objects.filter(clientes = parametro)
-        context['productos']=Producto.objects.filter(id=producto)
+        context['cestas']=Cesta.objects.filter(clientes=parametro)
         return context
+
 
 
 #Usuario
