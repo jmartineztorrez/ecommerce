@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- Shopping Summery -->
-                <table class="table shopping-summery">
+                <table class="table shopping-summery table-bordered">
                     <thead>
                         <tr class="main-hading">
                             <th>PRODUCTO</th>
@@ -22,12 +22,13 @@
                     <tbody>
 						{% for carrito in cestas %}
 							<tr>
-								<td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
+								<td class="image" data-title="No"><img src="../../static/{{carrito.productos.imagen}}" alt="#"></td>
 								<td class="product-des" data-title="Description">
-									<p class="product-name">{% for producto in carrito.productos.all %} {{producto}} {{producto.nombre}} {% endfor %}</p>
-									<p class="product-des">Maboriosam in a tonto nesciung eget distingy magndapibus.</p>
+									<p class="product-name font-weight-bold">
+										{{carrito.productos.nombre}} </p>
+									<p class="product-des">{{carrito.productos.descripcion}}</p>
 								</td>
-								<td class="price" data-title="Price"><span>$110.00 </span></td>
+								<td class="price" data-title="Price"><span>{{carrito.productos.precio}} € </span></td>
 								<td class="qty" data-title="Qty">
 									<!-- Input Order -->
 									<div class="">
@@ -35,7 +36,7 @@
 									</div>
 									<!--/ End Input Order -->
 								</td>
-								<td class="total-amount" data-title="Total"><span>$220.88</span></td>
+								<td id="total_prod" class="total-amount" data-title="Total"><span></span></td>
 								<td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
 							</tr>
 							
