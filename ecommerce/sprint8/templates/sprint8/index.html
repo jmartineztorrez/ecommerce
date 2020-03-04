@@ -79,7 +79,7 @@
                         {% if user.is_authenticated %}
                             <div class="right-content">
                                 <ul class="list-main">
-                                    <li><i class="ti-"></i><a href="{% url 'sprint8:logout' %}">Salir</a></li>
+                                    <li><i class="ti-power-off"></i><a href="{% url 'sprint8:logout' %}">Salir</a></li>
                                 </ul>
                             </div>
                             <div class="right-content">
@@ -112,32 +112,15 @@
                     <div class="col-lg-2 col-md-2 col-12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="sparint8:index.html"><img src="{% static 'images/logo.jpg' %}" alt="logo">Villa Tomillo</a>
+                            <a href="sparint8:index.html"><img src="{% static 'images/logoT.png' %}" alt="logo"></a>
                         </div>
                         <!--/ End Logo -->
-                        <!-- Search Form -->
-                        <div class="search-top">
-                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-                            <!-- Search Form -->
-                            <div class="search-top">
-                                <form class="search-form">
-                                    <input type="text" placeholder="Search here..." name="search">
-                                    <button value="search" type="submit"><i class="ti-search"></i></button>
-                                </form>
-                            </div>
-                            <!--/ End Search Form -->
-                        </div>
-                        <!--/ End Search Form -->
+                        
                         <div class="mobile-nav"></div>
                     </div>
                     <div class="col-lg-8 col-md-7 col-12">
                         <div class="search-bar-top">
-                            <div class="search-bar">
-                                <form>
-                                    <input name="search" placeholder="Search Products Here....." type="search">
-                                    <button class="btnn"><i class="ti-search"></i></button>
-                                </form>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-12">
@@ -236,24 +219,10 @@
     <section class="hero-slider">
         <!-- Single Slider -->
         <div class="single-slider">
+        <img src="{% static 'images/banner.png' %}" alt="#" class="imgbanner">
+
             <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-lg-9 offset-lg-3 col-12">
-                        <div class="text-inner">
-                            <div class="row">
-                                <div class="col-lg-7 col-12">
-                                    <div class="hero-text">
-                                        <h1><span>50% DE DESCUENTO</span>Pechera muy guay</h1>
-                                        <p><br><br></p>
-                                        <div class="button">
-                                            <a href="#" class="btn">Compra!</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                           
             </div>
         </div>
         <!--/ End Single Slider -->
@@ -298,11 +267,13 @@
                                                                     Compare</span></a>
                                                         </div>
                                                         <div class="product-action-2">
+                                                        <img src="{% static 'images/V1.jpg' %}" alt="#" class="MasVendidos">
                                                             <a title="Add to cart" href="#">Add to cart</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
+                                                
                                                     <h3><a href="product-details.html">Women Hot Collection</a></h3>
                                                     <div class="product-price">
                                                         <span>$29.00</span>
@@ -329,6 +300,7 @@
                                                                     Compare</span></a>
                                                         </div>
                                                         <div class="product-action-2">
+                                                        <img src="{% static 'images/V2.jpg' %}" alt="#" class="MasVendidos">
                                                             <a title="Add to cart" href="#">Add to cart</a>
                                                         </div>
                                                     </div>
@@ -360,6 +332,7 @@
                                                                     Compare</span></a>
                                                         </div>
                                                         <div class="product-action-2">
+                                                        <img src="{% static 'images/V3.jpg' %}" alt="#" class="MasVendidos">
                                                             <a title="Add to cart" href="#">Add to cart</a>
                                                         </div>
                                                     </div>
@@ -392,6 +365,7 @@
                                                                     Compare</span></a>
                                                         </div>
                                                         <div class="product-action-2">
+                                                        <img src="{% static 'images/V4.jpg' %}" alt="#">
                                                             <a title="Add to cart" href="#">Add to cart</a>
                                                         </div>
                                                     </div>
@@ -585,10 +559,10 @@
                                                 <!-- Single Widget -->
                                                 <div class="single-footer about">
                                                     <div class="logo">
-                                                        <a href="index.html"><img src="{% static 'images/logo.jpg' %}" alt="#"></a>
+                                                        <a href="index.html"><img src="{% static 'images/logoT.png' %}" alt="#"></a>
                                                     </div>
-                                                    <p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                                                    <p class="call">Got Question? Call us 24/7<span><a
+                                                    <p class="text">Hábito de compartir y recibir, compartir no es permitir, porque el diálogo es continuo y todos somos líderes.</p>
+                                                    <p class="call">Alguna Pregunta? Llamanos 24/7<span><a
                                                                 href="tel:123456789">+0123 456 789</a></span></p>
                                                 </div>
                                                 <!-- End Single Widget -->
@@ -596,13 +570,13 @@
                                             <div class="col-lg-2 col-md-6 col-12">
                                                 <!-- Single Widget -->
                                                 <div class="single-footer links">
-                                                    <h4>Information</h4>
+                                                    <h4>Información</h4>
                                                     <ul>
-                                                        <li><a href="#">About Us</a></li>
-                                                        <li><a href="#">Faq</a></li>
-                                                        <li><a href="#">Terms & Conditions</a></li>
-                                                        <li><a href="#">Contact Us</a></li>
-                                                        <li><a href="#">Help</a></li>
+                                                        <li><a href="#">Acerca de Nosotros</a></li>
+                                                        <li><a href="#">Preguntas</a></li>
+                                                        <li><a href="#">Terms & Condiciones</a></li>
+                                                        <li><a href="#">Contáctanos</a></li>
+                                                        <li><a href="#">Ayuda</a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- End Single Widget -->
@@ -610,13 +584,12 @@
                                             <div class="col-lg-2 col-md-6 col-12">
                                                 <!-- Single Widget -->
                                                 <div class="single-footer links">
-                                                    <h4>Customer Service</h4>
+                                                    <h4>Servicio al Cliente</h4>
                                                     <ul>
-                                                        <li><a href="#">Payment Methods</a></li>
-                                                        <li><a href="#">Money-back</a></li>
-                                                        <li><a href="#">Returns</a></li>
-                                                        <li><a href="#">Shipping</a></li>
-                                                        <li><a href="#">Privacy Policy</a></li>
+                                                        <li><a href="#">Metodos de Pago</a></li>
+                                                        <li><a href="#">Moneda Bancaria</a></li>
+                                                        <li><a href="#">Devoluciones</a></li>                                                        
+                                                        <li><a href="#">Política de Privacidad</a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- End Single Widget -->
@@ -624,14 +597,14 @@
                                             <div class="col-lg-3 col-md-6 col-12">
                                                 <!-- Single Widget -->
                                                 <div class="single-footer social">
-                                                    <h4>Get In Tuch</h4>
+                                                    <h4>Ponerse en contacto</h4>
                                                     <!-- Single Widget -->
                                                     <div class="contact">
                                                         <ul>
-                                                            <li>NO. 342 - London Oxford Street.</li>
-                                                            <li>012 United Kingdom.</li>
-                                                            <li>info@eshop.com</li>
-                                                            <li>+032 3456 7890</li>
+                                                            <li>Calle Cifuentes #5.</li>
+                                                            <li>034 Madrid.</li>
+                                                            <li>VillaTomillo@eshop.com</li>
+                                                            <li>+034 3456 7890</li>
                                                         </ul>
                                                     </div>
                                                     <!-- End Single Widget -->
