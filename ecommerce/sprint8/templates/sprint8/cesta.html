@@ -20,11 +20,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for producto in producto_cesta %}
+                        {{producto_cesta}} {% for datos_cesta in producto_cesta %}
                         <tr>
                             <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
                             <td class="product-des" data-title="Description">
-                                <p class="product-name"><a href="#">{{producto.cantidad}}</a></p>
+                                <p class="product-name"><a href="#">{{datos_cesta.cantidad}}</a></p>
                                 <p class="product-des">Maboriosam in a tonto nesciung eget distingy magndapibus.</p>
                             </td>
                             <td class="price" data-title="Price"><span>$110.00 </span></td>
