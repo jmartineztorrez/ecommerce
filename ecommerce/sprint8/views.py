@@ -60,7 +60,7 @@ class AgregarProductoCesta(CreateView):
     def form_valid(self,form):
         self.object = form.save(commit=False)
         producto= Producto.objects.get(pk = self.kwargs.get('pk',None))
-        usuario = User.objects.get(pk = 1)
+        usuario = User.objects.get(pk = self.kwargs.get('id',None))
         self.object.productos = producto
         self.object.clientes = usuario
         self.object.save()
