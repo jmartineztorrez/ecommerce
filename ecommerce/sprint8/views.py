@@ -96,12 +96,16 @@ class RegistroUsuario(CreateView):
         model = User
         template_name = "sprint8/register_usuario.html"
         form_class= UserForm
+        context_object_name = 'categorias'
+        queryset = Categoria.objects.all()
         success_url=reverse_lazy('sprint8:login')
         
 class LoginUser(FormView):
         model = User
         template_name='sprint8/login.html'
         form_class=FormularioLogin
+        context_object_name = 'categorias'
+        queryset = Categoria.objects.all()
         success_url=reverse_lazy('sprint8:index')
         
         def dispatch(self, request, *args, **kwargs):
