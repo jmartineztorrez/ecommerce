@@ -1,11 +1,7 @@
- {% extends 'sprint8/index.html' %} 
- {% block body %}
+ {% extends 'sprint8/index.html' %} {% block body %}
 <div class="container">
-<br/>
-    <h2>Categoria {{producto.nombre}}
-        {% for nombre_categoria in categoriasId %}
-            {{nombre_categoria.nombre}}
-        {% endfor %}
+    <br/>
+    <h2>Categoria {{producto.nombre}} {% for nombre_categoria in categoriasId %} {{nombre_categoria.nombre}} {% endfor %}
     </h2>
     <br>
     </br>
@@ -22,7 +18,7 @@
                         </div>
                         <div class="button-head">
                             <div class="product-action text-right">
-                                <a  onclick="abrir_modal_creacion('{% url 'sprint8:agregar_cesta' producto.id user.id %}')"><i
+                                <a onclick="abrir_modal_creacion('{% url 'sprint8:agregar_cesta' producto.id user.id %}')"><i
                                     class=" ti-shopping-cart"></i></a>
                             </div>
                         </div>
@@ -57,8 +53,7 @@
 
 </div>
 
-{% endblock body %} 
-{% block extrajs %}
+{% endblock body %} {% block extrajs %}
 <script type="text/javascript">
     var $ = jQuery.noConflict();
 

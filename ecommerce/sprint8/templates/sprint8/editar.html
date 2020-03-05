@@ -6,13 +6,13 @@
         </div>
         <div class="modal-body">
             <div class="row no-gutters">
-                {% for producto in productos %}
+                {% for carrito in cestas %}
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <!-- Product Slider -->
                     <div class="product-gallery">
                         <div class="quickview-slider-active">
                             <div class="single-slider">
-                                <img src="../../static/{{producto.imagen}}" alt="#">
+                                <img src="../../static/{{carrito.productos.imagen}}" alt="#">
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="quickview-content">
-                        <h2>{{producto.nombre}}</h2>
+                        <h2>{{carrito.productos.nombre}}</h2>
                         <div class="quickview-ratting-review">
                             <div class="quickview-ratting-wrap">
                                 <div class="quickview-ratting">
@@ -36,13 +36,13 @@
                                 <span><i class="fa fa-check-circle-o"></i> in stock</span>
                             </div>
                         </div>
-                        <h3>{{producto.precio}} €</h3>
+                        <h3>{{carrito.productos.precio}} €</h3>
                         <div class="quickview-peragraph">
-                            <p>{{producto.descripcion}}</p>
+                            <p>{{carrito.productos.descripcion}}</p>
                         </div>
                         <div class="quantity">
                             <!-- Input Order -->
-                            <form action="{% url 'sprint8:agregar_cesta' producto.id user.id %}" method="POST">
+                            <form action="{% url 'sprint8:editar_cesta' carrito.productos.id user.id %}" method="POST">
                                 {% csrf_token %} {{ form.as_p }}
                                 <!--/ End Input Order -->
                                 <div class="modal-footer">
