@@ -18,8 +18,13 @@
                         </div>
                         <div class="button-head">
                             <div class="product-action text-right">
+                                {% if user.is_authenticated %}
                                 <a onclick="abrir_modal_creacion('{% url 'sprint8:agregar_cesta' producto.id user.id %}')"><i
-                                    class=" ti-shopping-cart"></i></a>
+                                    class=" ti-shopping-cart"></i></a> 
+                                {% else %}
+                                <a href="{% url 'sprint8:login' %}"><i class=" ti-shopping-cart"></i></a>
+                                {% endif %}
+
                             </div>
                         </div>
                         <div class="product-content">
