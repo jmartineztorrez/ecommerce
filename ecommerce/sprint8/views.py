@@ -103,13 +103,14 @@ class eliminarCesta(DeleteView):
         def get(self, request, *args, **kwargs):
                 return self.post(request, *args, **kwargs)
 
-class limpiarCesta(DeleteView):
+class limpiarCesta(View):
         model=Cesta
-        success_url = reverse_lazy('/')
+        #success_url = reverse_lazy('sprint8:index')
 
         def get(self, request, *args, **kwargs):
-                return self.post(request, *args, **kwargs)
-  
+            parametro = self.kwargs.get('pk', None)
+            Cesta.objects.filter(clientes = parametro).delete()
+            return redirect('sprint8:index')
 
 class EditarCesta(UpdateView):
         model = Cesta
