@@ -68,7 +68,7 @@
                                     <li class="last">Su Pago<span>$310.00</span></li>
                                 </ul>
                                 <div class="button5">
-                                    <a href="{% url 'sprint8:limpiar_cesta' user.id %}" class="btn">Pagar</a>
+                                    <a href="{% url 'sprint8:limpiar_cesta' user.id %}" class="btn" id="btnPagar">Pagar</a>
 
                                     <a href="#" class="btn">Continuar Comprando</a>
                                 </div>
@@ -93,5 +93,16 @@
             $(this).modal('show');
         });
     }
+
+    $('#btnPagar').click(function(){
+        swal({
+            title:"Gracias por su compra!!",
+            text:"Click en submit!",
+            icon:"success",
+            timer: 1000000
+            
+        });
+       
+    });
 </script>
 {% endblock extrajs %}

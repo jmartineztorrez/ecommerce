@@ -4952,6 +4952,12 @@ Version:1.0
 	height: 100%;
 
 }
+
+#btnPagar{  
+  transition: 4s;
+  cursor: pointer;
+  
+}
 /*=============================
 	End Footer CSS
 ===============================*/
