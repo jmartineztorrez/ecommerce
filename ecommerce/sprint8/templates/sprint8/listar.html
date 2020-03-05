@@ -1,7 +1,7 @@
  {% extends 'sprint8/index.html' %} {% block body %}
 <div class="container">
     <br/>
-    <h2>Categoria {{producto.nombre}} {% for nombre_categoria in categoriasId %} {{nombre_categoria.nombre}} {% endfor %}
+    <h2>Categoria <i class="ti-hand-point-right"></i>    {% for nombre_categoria in categoriasId %}    {{nombre_categoria.nombre}} {% endfor %}
     </h2>
     <br>
     </br>
@@ -11,13 +11,13 @@
                 <div class="row">
                     {% for producto in productos %}
                     <div class="card">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center" border="solid 1px grey">
                             <a>
                                 <img class="default-img" src="../../static/{{producto.imagen}}" alt="#">
                             </a>
                         </div>
                         <div class="button-head">
-                            <div class="product-action text-right">
+                            <div class="product-action text-center">
                                 {% if user.is_authenticated %}
                                 <a onclick="abrir_modal_creacion('{% url 'sprint8:agregar_cesta' producto.id user.id %}')"><i
                                     class=" ti-shopping-cart"></i></a> 
@@ -27,21 +27,29 @@
 
                             </div>
                         </div>
-                        <div class="product-content">
+                        
+                        <div class="product-content produdatos">
+                        <br>
                             <h5>
                                 <a>
-                                    <p class="text-uppercase font-weight-bold text-center">{{producto.nombre}}</p>
+                                    <p class="text-uppercase font-weight-bold text-center" style="color: orange">{{producto.nombre}}</p>
                                 </a>
                             </h5>
-                            <hr>
-                            <h6>
+                            <br>
+                            <h6 style="padding: 15px">
                                 <a>
-                                    <p class="text-justify">{{producto.descripcion}}</p>
+                                    <p class="text-justify" style="color: white">{{producto.descripcion}}</p>
                                 </a>
                             </h6>
-                            <hr>
+                            <br>
                             <div class="product-price">
-                                <span><p class="text-right font-weight-bold">{{producto.precio}} €</p></span>
+                                
+                                <span>{% if user.is_authenticated %}
+                                <p class="comprar text-left col-lg-7 col-7"><a onclick="abrir_modal_creacion('{% url 'sprint8:agregar_cesta' producto.id user.id %}')"  class="comprar">COMPRAR</a></p>
+                                {% else %}
+                                <p class="comprar text-left col-lg-7 col-7"><a href="{% url 'sprint8:login' %}">COMPRAR</a></p>
+                                {% endif %}<p class="text-right font-weight-bold col-lg-4 col-4" style="float: right; color: white">{{producto.precio}} €</p>
+                                </span>
                             </div>
                         </div>
                         <!--/ End Single Tab -->

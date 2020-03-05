@@ -4952,6 +4952,32 @@ Version:1.0
 	height: 100%;
 
 }
+.logosection{
+	align-items: center;
+	justify-content: center;
+}
+.ti-shopping-cart{
+	color: orange;
+	cursor: pointer;
+}
+.comprar{
+	color: orange;
+	cursor: pointer;
+	float: left;
+}
+.card{
+	background-color: grey;
+}
+.card-body{
+	padding: 0;
+	background-color: white;
+}
+.button-head{
+	background-color: white;
+}
+.produdatos{
+	border: none;
+}
 /*=============================
 	End Footer CSS
 ===============================*/
