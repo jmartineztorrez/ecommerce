@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 
 #from .forms import ProductoForm
@@ -96,25 +96,45 @@ def logoutUsuario(request):
         logout(request)
         return HttpResponseRedirect('accounts/login/')
 
-# class EditarCesta(UpdateView):
-#     model = Cesta
-#     form_class = CestaForm
-#     template_name = 'sprint8/agregar_a_cesta.html'
-#     success_url = reverse_lazy('sprint:index')
-#     context_object_name = 'cestas'
-#     queryset = Cesta.objects.all()
-    
+class eliminarCesta(DeleteView):
+        model=Cesta
+        success_url = reverse_lazy('sprint8:index')
 
-    # def get_context_data(self,**kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['cestas'] = Cesta.objects.filter(id = 'pk')
-    #     return context
+        def get(self, request, *args, **kwargs):
+                return self.post(request, *args, **kwargs)
+
+class limpiarCesta(DeleteView):
+        model=Cesta
+        success_url = reverse_lazy('/')
+
+        def get(self, request, *args, **kwargs):
+                return self.post(request, *args, **kwargs)
+  
+
+class EditarCesta(UpdateView):
+        model = Cesta
+        form_class = CestaForm
+        template_name = 'sprint8/agregar_a_cesta.html'
+        success_url = reverse_lazy('sprint8:index')
+        context_object_name = 'cestas'
+        queryset = Cesta.objects.all()
+
+        
+
+        def get_context_data(self,**kwargs):
+                context = super().get_context_data(**kwargs)
+                context['cestas'] = Cesta.objects.filter(id = 'pk')
+                return context
+
+        
+
     
-    # def form_valid(self,form):
-    #     self.object = form.save(commit=False)
-    #     producto= Producto.objects.get(pk = self.kwargs.get('pk',None))
-    #     usuario = User.objects.get(pk = self.kwargs.get('id',None))
-    #     self.object.productos = producto
-    #     self.object.clientes = usuario
-    #     self.object.save()
-    #     return super(AgregarProductoCesta,self).form_valid(form)
+        def form_valid(self,form):
+
+                self.object = form.save(commit=False)
+                producto= Producto.objects.get(pk = self.kwargs.get('pk',None))
+                usuario = User.objects.get(pk = self.kwargs.get('id',None))
+                self.object.productos = producto
+                self.object.clientes = usuario
+                self.object.save()
+                return super(AgregarProductoCesta,self).form_valid(form)
