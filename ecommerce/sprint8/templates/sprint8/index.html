@@ -84,8 +84,7 @@
                             </div>
                             <div class="right-content">
                                 <ul class="list-main">
-                                    <li>
-                                        <i class="ti-user"></i>Bienvenid@ {{user.username}}
+                                    <li><i class="ti-user"></i>{{user.username}}</a>
                                     </li>
                                 </ul>
                             </div>                            
@@ -161,8 +160,12 @@
                                             <span>Total</span>
                                             <span class="total-amount">$134.00</span>
                                         </div>
+<<<<<<< HEAD
                                         <a href="checkout.html" class="btn animate" >Pagar</a>
                                        
+=======
+                                        <a href="checkout.html" class="btn animate">Pagar</a>
+>>>>>>> parent of 3013b03... gg
                                     </div>
                                 </div>
                                 <!--/ End Shopping Item -->
@@ -174,14 +177,10 @@
         </div>
         <!-- Header Inner -->
         <div class="header-inner">
-            <div class="container" style="height: auto; margin: 0; max-width: 100%">
+            <div class="container">
                 <div class="cat-nav-head">
                     <div class="row">
-                        <div class="logosection col-lg-2 col-2">
-                            <a href="{% url 'sprint8:index' %}"><img src="{% static 'images/logoT.png' %}" alt="logo" style="height: 50px; margin-top: 11px"></a>
-                        </div>
-                        <div class="dropdown all-category col-lg-3 col-3" style="background-color: transparent">
-                        {% block body2 %}
+                        <div class="dropdown all-category">
                             <button type="button" class="btn btn-dark dropdown-toggle cat-heading" data-toggle="dropdown">
                                 <h5> <i class="fa fa-bars" aria-hidden="true"></i>CATEGORIAS </h5>
                             </button>
@@ -191,10 +190,10 @@
                                     <li><a href="{% url 'sprint8:listar' categoria.id %}">{{categoria.nombre}}</a></li>
                                     {% endfor %}
                                 </ul>
-                        {% endblock body2 %}
+
                             </div>
                         </div>
-                        <div class="col-lg-4 col-4">
+                        <div class="col-lg-9 col-12">
                             <div class="menu-area">
                                 <!-- Main Menu -->
                                 <nav class="navbar navbar-expand-lg">
@@ -211,41 +210,6 @@
                                 <!--/ End Main Menu -->
                             </div>
                         </div>
-                        <div class="sinlge-bar shopping col-lg-2 col-2" style="margin-top: 25px">
-                                <a href="#" class="single-icon"><i class="ti-shopping-cart" style="color: orange;"></i></a>
-                                <!-- Shopping Item -->
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span>2 Items</span>
-                                        {% if user.is_authenticated %}
-                                            <a href="{% url 'sprint8:cesta' user.id %}">Cesta</a>
-                                        {% else %}
-                                        <a href="{% url 'sprint8:login' %}">Cesta</a>
-                                        {% endif %}
-                                    </div>
-                                    <ul class="shopping-list">
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i
-                                                    class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="" alt="#"></a>
-                                            <h4><a href="#">Woman Ring</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                        </li>
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Total</span>
-                                            <span class="total-amount">$134.00</span>
-                                        </div>
-                                        {% if user.is_authenticated %}
-                                        <a href="{% url 'sprint8:cesta' user.id %}" class="btn animate">Pagar</a>
-                                        {% else %}
-                                        <a href="{% url 'sprint8:login' %}" class="btn animate">Pagar</a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <!--/ End Shopping Item -->
-                            </div>
                     </div>
                 </div>
             </div>
@@ -272,7 +236,7 @@
 
 
     <!-- Start Product Area -->
-    <div class="product-area section" style="padding-bottom: 0">
+    <div class="product-area section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -292,11 +256,21 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="">
+                                                    <a href="product-details.html">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
                                                     <div class="button-head">
+                                                        <div class="product-action">
+                                                            <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
+                                                                    class=" ti-eye"></i><span>Quick Shop</span></a>
+                                                            <a title="Wishlist" href="#"><i
+                                                                    class=" ti-heart "></i><span>Add to
+                                                                    Wishlist</span></a>
+                                                            <a title="Compare" href="#"><i
+                                                                    class="ti-bar-chart-alt"></i><span>Add to
+                                                                    Compare</span></a>
+                                                        </div>
                                                         <div class="product-action-2">
                                                         <img src="{% static 'images/V1.jpg' %}" alt="#" class="MasVendidos">
                                                             <a title="Add to cart" href="#">Add to cart</a>
@@ -304,9 +278,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="">Nombre</a></h3>
+                                                
+                                                    <h3><a href="product-details.html">Women Hot Collection</a></h3>
                                                     <div class="product-price">
-                                                        <span>29.00 €</span>
+                                                        <span>$29.00</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -314,11 +289,21 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="">
+                                                    <a href="product-details.html">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
                                                     <div class="button-head">
+                                                        <div class="product-action">
+                                                            <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
+                                                                    class=" ti-eye"></i><span>Quick Shop</span></a>
+                                                            <a title="Wishlist" href="#"><i
+                                                                    class=" ti-heart "></i><span>Add to
+                                                                    Wishlist</span></a>
+                                                            <a title="Compare" href="#"><i
+                                                                    class="ti-bar-chart-alt"></i><span>Add to
+                                                                    Compare</span></a>
+                                                        </div>
                                                         <div class="product-action-2">
                                                         <img src="{% static 'images/V2.jpg' %}" alt="#" class="MasVendidos">
                                                             <a title="Add to cart" href="#">Add to cart</a>
@@ -326,9 +311,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="">Nombre</a></h3>
+                                                    <h3><a href="product-details.html">Awesome Pink Show</a></h3>
                                                     <div class="product-price">
-                                                        <span>29.00 €</span>
+                                                        <span>$29.00</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -336,11 +321,21 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="">
+                                                    <a href="product-details.html">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
                                                     </a>
                                                     <div class="button-head">
+                                                        <div class="product-action">
+                                                            <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
+                                                                    class=" ti-eye"></i><span>Quick Shop</span></a>
+                                                            <a title="Wishlist" href="#"><i
+                                                                    class=" ti-heart "></i><span>Add to
+                                                                    Wishlist</span></a>
+                                                            <a title="Compare" href="#"><i
+                                                                    class="ti-bar-chart-alt"></i><span>Add to
+                                                                    Compare</span></a>
+                                                        </div>
                                                         <div class="product-action-2">
                                                         <img src="{% static 'images/V3.jpg' %}" alt="#" class="MasVendidos">
                                                             <a title="Add to cart" href="#">Add to cart</a>
@@ -348,9 +343,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="">Nombre</a></h3>
+                                                    <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
                                                     <div class="product-price">
-                                                        <span>29.00 €</span>
+                                                        <span>$29.00</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -358,21 +353,32 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="">
+                                                    <a href="product-details.html">
                                                         <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
                                                         <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                                        <span class="new">New</span>
                                                     </a>
                                                     <div class="button-head">
+                                                        <div class="product-action">
+                                                            <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
+                                                                    class=" ti-eye"></i><span>Quick Shop</span></a>
+                                                            <a title="Wishlist" href="#"><i
+                                                                    class=" ti-heart "></i><span>Add to
+                                                                    Wishlist</span></a>
+                                                            <a title="Compare" href="#"><i
+                                                                    class="ti-bar-chart-alt"></i><span>Add to
+                                                                    Compare</span></a>
+                                                        </div>
                                                         <div class="product-action-2">
-                                                        <img src="{% static 'images/V4.jpg' %}" alt="#" class="MasVendidos">
+                                                        <img src="{% static 'images/V4.jpg' %}" alt="#">
                                                             <a title="Add to cart" href="#">Add to cart</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="">Nombre</a></h3>
+                                                    <h3><a href="product-details.html">Women Pant Collectons</a></h3>
                                                     <div class="product-price">
-                                                        <span>29.00 €</span>
+                                                        <span>$29.00</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -391,8 +397,8 @@
                                             <!-- Start Single Service -->
                                             <div class="single-service">
                                                 <i class="ti-rocket"></i>
-                                                <h4>Envío gratuito</h4>
-                                                <p>Pedidos mayores de 100€</p>
+                                                <h4>Free shiping</h4>
+                                                <p>Orders over $100</p>
                                             </div>
                                             <!-- End Single Service -->
                                         </div>
@@ -400,8 +406,8 @@
                                             <!-- Start Single Service -->
                                             <div class="single-service">
                                                 <i class="ti-reload"></i>
-                                                <h4>Devolución gratuita</h4>
-                                                <p>30 días para devolución</p>
+                                                <h4>Free Return</h4>
+                                                <p>Within 30 days returns</p>
                                             </div>
                                             <!-- End Single Service -->
                                         </div>
@@ -409,8 +415,8 @@
                                             <!-- Start Single Service -->
                                             <div class="single-service">
                                                 <i class="ti-lock"></i>
-                                                <h4>Pago seguro</h4>
-                                                <p>Pago 100% seguro</p>
+                                                <h4>Sucure Payment</h4>
+                                                <p>100% secure payment</p>
                                             </div>
                                             <!-- End Single Service -->
                                         </div>
@@ -418,8 +424,8 @@
                                             <!-- Start Single Service -->
                                             <div class="single-service">
                                                 <i class="ti-tag"></i>
-                                                <h4>El mejor precio</h4>
-                                                <p>Precio garantizado</p>
+                                                <h4>Best Peice</h4>
+                                                <p>Guaranteed price</p>
                                             </div>
                                             <!-- End Single Service -->
                                         </div>
@@ -428,36 +434,170 @@
                             </section>
                             <!-- End Shop Services Area -->
 
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close"
+                                                    aria-hidden="true"></span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row no-gutters">
+                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                    <!-- Product Slider -->
+                                                    <div class="product-gallery">
+                                                        <div class="quickview-slider-active">
+                                                            <div class="single-slider">
+                                                                <img src="https://via.placeholder.com/569x528" alt="#">
+                                                            </div>
+                                                            <div class="single-slider">
+                                                                <img src="https://via.placeholder.com/569x528" alt="#">
+                                                            </div>
+                                                            <div class="single-slider">
+                                                                <img src="https://via.placeholder.com/569x528" alt="#">
+                                                            </div>
+                                                            <div class="single-slider">
+                                                                <img src="https://via.placeholder.com/569x528" alt="#">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Product slider -->
+                                                </div>
+                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="quickview-content">
+                                                        <h2>Flared Shift Dress</h2>
+                                                        <div class="quickview-ratting-review">
+                                                            <div class="quickview-ratting-wrap">
+                                                                <div class="quickview-ratting">
+                                                                    <i class="yellow fa fa-star"></i>
+                                                                    <i class="yellow fa fa-star"></i>
+                                                                    <i class="yellow fa fa-star"></i>
+                                                                    <i class="yellow fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </div>
+                                                                <a href="#"> (1 customer review)</a>
+                                                            </div>
+                                                            <div class="quickview-stock">
+                                                                <span><i class="fa fa-check-circle-o"></i> in
+                                                                    stock</span>
+                                                            </div>
+                                                        </div>
+                                                        <h3>$29.00</h3>
+                                                        <div class="quickview-peragraph">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
+                                                        </div>
+                                                        <div class="size">
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-12">
+                                                                    <h5 class="title">Size</h5>
+                                                                    <select>
+                                                                        <option selected="selected">s</option>
+                                                                        <option>m</option>
+                                                                        <option>l</option>
+                                                                        <option>xl</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-lg-6 col-12">
+                                                                    <h5 class="title">Color</h5>
+                                                                    <select>
+                                                                        <option selected="selected">orange</option>
+                                                                        <option>purple</option>
+                                                                        <option>black</option>
+                                                                        <option>pink</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="quantity">
+                                                            <!-- Input Order -->
+                                                            <div class="input-group">
+                                                                <div class="button minus">
+                                                                    <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                                        <i class="ti-minus"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="1000" value="1">
+                                                                <div class="button plus">
+                                                                    <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                                                        <i class="ti-plus"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <!--/ End Input Order -->
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <a href="#" class="btn">Add to cart</a>
+                                                            <a href="#" class="btn min"><i class="ti-heart"></i></a>
+                                                            <a href="#" class="btn min"><i
+                                                                    class="fa fa-compress"></i></a>
+                                                        </div>
+                                                        <div class="default-social">
+                                                            <h4 class="share-now">Share:</h4>
+                                                            <ul>
+                                                                <li><a class="facebook" href="#"><i
+                                                                            class="fa fa-facebook"></i></a></li>
+                                                                <li><a class="twitter" href="#"><i
+                                                                            class="fa fa-twitter"></i></a></li>
+                                                                <li><a class="youtube" href="#"><i
+                                                                            class="fa fa-pinterest-p"></i></a></li>
+                                                                <li><a class="dribbble" href="#"><i
+                                                                            class="fa fa-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal end -->
                             <br> {% endblock body %} <br><br></br>
                             <!-- Start Footer Area -->
-                            <footer class="footer" style="padding: 20px">
+                            <footer class="footer">
                                 <!-- Footer Top -->
-                                <div class="footer-top section" style="padding: 20px">
+                                <div class="footer-top section">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-5 col-md-9 col-12">
                                                 <!-- Single Widget -->
                                                 <div class="single-footer about">
                                                     <div class="logo">
-                                                        <a href="{% url 'sprint8:index' %}"><img src="{% static 'images/logoT.png' %}" alt="#" style="width: 50%; height: 50%"></a>
+                                                        <a href="index.html"><img src="{% static 'images/logoT.png' %}" alt="#"></a>
                                                     </div>
                                                     <p class="text">Hábito de compartir y recibir, compartir no es permitir, porque el diálogo es continuo y todos somos líderes.</p>
                                                     <p class="call">Alguna Pregunta? Llamanos 24/7<span><a
-                                                                href="tel:123456789">+0123 456 789</span></p>
+                                                                href="tel:123456789">+0123 456 789</a></span></p>
                                                 </div>
                                                 <!-- End Single Widget -->
                                             </div>
-                                            <div class="col-lg-3 col-md-6 col-12">
+                                            <div class="col-lg-2 col-md-6 col-12">
                                                 <!-- Single Widget -->
                                                 <div class="single-footer links">
                                                     <h4>Información</h4>
                                                     <ul>
                                                         <li><a href="#">Acerca de Nosotros</a></li>
+                                                        <li><a href="#">Preguntas</a></li>
+                                                        <li><a href="#">Terms & Condiciones</a></li>
+                                                        <li><a href="#">Contáctanos</a></li>
+                                                        <li><a href="#">Ayuda</a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- End Single Widget -->
                                             </div>
-                                            <div class="col-lg-1 col-md-6 col-12">
+                                            <div class="col-lg-2 col-md-6 col-12">
+                                                <!-- Single Widget -->
+                                                <div class="single-footer links">
+                                                    <h4>Servicio al Cliente</h4>
+                                                    <ul>
+                                                        <li><a href="#">Metodos de Pago</a></li>
+                                                        <li><a href="#">Moneda Bancaria</a></li>
+                                                        <li><a href="#">Devoluciones</a></li>                                                        
+                                                        <li><a href="#">Política de Privacidad</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- End Single Widget -->
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-12">
                                                 <!-- Single Widget -->
@@ -469,7 +609,7 @@
                                                             <li>Calle Cifuentes #5.</li>
                                                             <li>034 Madrid.</li>
                                                             <li>VillaTomillo@eshop.com</li>
-                                                            <li>+0123 456 789</li>
+                                                            <li>+034 3456 7890</li>
                                                         </ul>
                                                     </div>
                                                     <!-- End Single Widget -->
@@ -492,7 +632,7 @@
                                             <div class="row">
                                                 <div class="col-lg-6 col-12">
                                                     <div class="left">
-                                                        <p>Copyright © 2020 <a href="" target="_blank">Villa Tomillo</a> - Todos los derechos reservados.</p>
+                                                        <p>Copyright © 2020 <a href="" target="_blank">Villa Tomillo</a> - All Rights Reserved.</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-12">

@@ -4952,12 +4952,15 @@ Version:1.0
 	height: 100%;
 
 }
+<<<<<<< HEAD
 
 #btnPagar{  
   transition: 4s;
   cursor: pointer;
   
 }
+=======
+>>>>>>> parent of 3013b03... gg
 /*=============================
 	End Footer CSS
 ===============================*/
