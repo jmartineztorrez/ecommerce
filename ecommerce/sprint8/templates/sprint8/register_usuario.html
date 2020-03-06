@@ -1,6 +1,8 @@
 {% extends 'sprint8/index.html' %} {% block body %}
-<br><br>
-<div class="container w-50 border border-primary">
+{% block bodyCategorias %}<p>&nbsp</p>{% endblock bodyCategorias %}
+{% block bodyCesta %}<p>&nbsp</p>{% endblock bodyCesta %}
+<br>
+<div class="container w-50">
     <br>
     <h2 class="text-center">Registrar</h2>
     <form method="POST">
@@ -10,7 +12,7 @@
                 <label for="username">Nombre de Usuario:</label>
                 <!-- <input type="text" name="username" class="form-control" placeholder="Ingrese Nombre de Usuario" id="username" maxlength="150" autofocus required>  -->
                 {{form.username}}
-                <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                <span class="helptext">150 caracteres o menos. Solo letras, números y @/./+/-/_ </span>
             </p>
             <p><br>
                 <label for="first_name">Nombre:</label>
@@ -29,27 +31,26 @@
             </p>
             <p>
                 <br>
-                <label for="id_password1">Password:</label><br>
+                <label for="id_password1">Contraseña:</label><br>
                 <!-- <input type="password" name="password1" required id="id_password1"> -->
                 {{form.password1}}
                 <span class="helptext">
-                    <ul><li>Your password can&#39;t be too similar to your other personal information.</li>
-                        <li>Your password must contain at least 8 characters.</li>
-                        <li>Your password can&#39;t be a commonly used password.</li>
-                        <li>Your password can&#39;t be entirely numeric.</li>
+                    <ul>
+                        <li>Debe contener al menos 8 caracteres.</li>
+                        <li>No debe ser enteramente numérica.</li>
                     </ul>
                 </span></p>
             <p>
                 <br>
-                <label for="id_password2">Password confirmation:</label><br>
+                <label for="id_password2">Confirmación de Contraseña:</label><br>
                 <!-- <input type="password" name="password2" required id="id_password2"> -->
                 {{form.password2}}<br>
-                <span class="helptext">Enter the same password as before, for verification.</span>
+                <span class="helptext">Debe coincidir con la anterior contraseña introducida.</span>
             </p>
         </div>
         <div class="modal-footer">
-            <a href="{% url 'sprint8:index' %}" class="btn btn-danger">Cancelar</a>
-            <button class="btn btn-primary" type="submit">Confirmar</button>
+            <a href="{% url 'sprint8:index' %}" class="btn">Cancelar</a>
+            <button class="btn" type="submit">Confirmar</button>
         </div>
     </form>
 </div>
