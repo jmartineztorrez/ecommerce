@@ -58,17 +58,7 @@
                                     <li class="last">Su Pago<span>$310.00</span></li>
                                 </ul>
                                 <div class="button5">
-<<<<<<< HEAD
                                     <a href="{% url 'sprint8:limpiar_cesta' user.id %}" class="btn" id="btnPagar">Pagar</a>
-
-                                    <a href="#" class="btn">Pagar</a>
-<<<<<<< HEAD
-=======
-                                    <a href="{% url 'sprint8:limpiar_cesta' user.id %}" class="btn">Pagar</a>
-
->>>>>>> parent of 3013b03... gg
-=======
->>>>>>> parent of 952bc68... Revert "Merge branch 'master' of https://github.com/jmartineztorrez/ecommerce"
                                     <a href="#" class="btn">Continuar Comprando</a>
                                 </div>
                             </div>
@@ -80,7 +70,7 @@
         </div>
     </div>
 </div>
-{% endblock body %} 
+{% endblock body %}
 <!--/ End Shopping Cart -->
 <div class="modal fade" id="editar" role="dialog">
 </div>
@@ -94,15 +84,15 @@
         });
     }
 
-    $('#btnPagar').click(function(){
+    $('#btnPagar').click(function() {
         swal({
-            title:"Gracias por su compra!!",
-            text:"Click en submit!",
-            icon:"success",
+            title: "Gracias por su compra!!",
+            text: "Click en submit!",
+            icon: "success",
             timer: 1000000
-            
+
         });
-       
+
     });
 </script>
 {% endblock extrajs %}
