@@ -10,8 +10,10 @@
                         <tr class="main-hading">
                             <th>PRODUCTO</th>
                             <th>NOMBRE</th>
-                            <th class="text-center">PRECIO UNIDAD</th>
+                            <th class="text-center">PRECIO UNIT.</th>
                             <th class="text-center">CANTIDAD</th>
+                            <th class="text-center">TOTAL</th>
+                            <!-- <th class="text-center"><i class="ti-pencil-alt remove-icon"></i></th> -->
                             <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                         </tr>
                     </thead>
@@ -25,12 +27,20 @@
                                 <p class="product-des">{{carrito.productos.descripcion}}</p>
                             </td>
                             <td class="price" data-title="Price"><span>{{carrito.productos.precio}} € </span></td>
-                            <td class="cantidad text-center" data-title="cantidad">
-                                <p>
+                            <td class="qty" data-title="Qty">
+                                <!-- Input Order -->
+                                <div class="">
                                     {{carrito.cantidad}}
-                                </p>
+                                </div>
+                                <!--/ End Input Order -->
                             </td>
-                            <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
+                            <td id="total_prod" class="total-amount" data-title="Total"><span></span></td>
+                            <!-- <td class="action" data-title="Remove">
+									<a onclick="abrir_modal_editar('{% url 'sprint8:editar_cesta' carrito.productos.id user.id %}')">
+										<i class="ti-pencil-alt remove-icon"></i>
+									</a>
+								</td> -->
+                            <td class="action" data-title="Remove"><a href="{% url 'sprint8:eliminar_cesta' carrito.id %}"><i class="ti-trash remove-icon"></i></a></td>
                         </tr>
 
                         {% endfor %}
@@ -60,7 +70,6 @@
                                 <div class="button5">
                                     <a href="{% url 'sprint8:limpiar_cesta' user.id %}" class="btn" id="btnPagar">Pagar</a>
 
-                                    <a href="#" class="btn">Pagar</a>
                                     <a href="#" class="btn">Continuar Comprando</a>
                                 </div>
                             </div>
@@ -72,11 +81,10 @@
         </div>
     </div>
 </div>
-{% endblock body %} 
 <!--/ End Shopping Cart -->
 <div class="modal fade" id="editar" role="dialog">
 </div>
-{% block extrajs %}
+{% endblock body %} {% block extrajs %}
 <script type="text/javascript">
     var $ = jQuery.noConflict();
 
