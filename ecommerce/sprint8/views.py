@@ -108,15 +108,16 @@ class eliminarCesta(DeleteView):
 #elimina toda la cesta
 class limpiarCesta(View):
         model=Cesta
-       
+
         def get(self, request, *args, **kwargs):
-            parametro = self.kwargs.get('pk', None)
-            Cesta.objects.filter(clientes = parametro).delete()
-            return redirect('sprint8:index')
+            id_user= self.request.user.id
+            Cesta.objects.filter(clientes = id_user).delete()            
+            return redirect('sprint8:cesta',id_user)
 
 class EditarCesta(UpdateView):
         model = Cesta
         form_class = CestaForm
+        var=""
         template_name = 'sprint8/agregar_a_cesta.html'
         success_url = reverse_lazy('sprint8:index')
         context_object_name = 'cestas'

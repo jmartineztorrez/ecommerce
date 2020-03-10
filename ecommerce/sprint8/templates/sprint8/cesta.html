@@ -1,6 +1,5 @@
-{% extends 'sprint8/index.html' %} 
-{% block bodyCesta %}<p>&nbsp</p>{% endblock bodyCesta %}
-{% block body %}
+{% extends 'sprint8/index.html' %} {% block bodyCesta %}
+<p>&nbsp</p>{% endblock bodyCesta %} {% block body %}
 
 <!-- Shopping Cart -->
 <div class="shopping-cart section">
@@ -68,7 +67,7 @@
                                     <li class="last">Su Pago<span>El total que no hemos hecho €</span></li>
                                 </ul>
                                 <div class="button5">
-                                    <a href="{% url 'sprint8:limpiar_cesta' user.id %}" class="btn" id="btnPagar">Pagar</a>
+                                    <a href="{% url 'sprint8:limpiar_cesta'%}" class="btn" id="btnPagar">Pagar</a>
 
                                     <a href="{% url 'sprint8:index' %}" class="btn">Continuar Comprando</a>
                                 </div>
@@ -94,15 +93,15 @@
         });
     }
 
-    $('#btnPagar').click(function(){
+    $('#btnPagar').click(function() {
         swal({
-            title:"Gracias por su compra!!",
-            text:"Click en submit!",
-            icon:"success",
+            title: "Gracias por su compra!!",
+            text: "Click en submit!",
+            icon: "success",
             timer: 1000000,
-            
+
         });
-       
+
     });
 </script>
 {% endblock extrajs %}
