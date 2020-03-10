@@ -5851,6 +5851,8 @@ Version:1.0
     margin-bottom: 20px;
 }
 
+.footer .about .logo img {}
+
 .footer .about .text {
     color: #fff;
     font-weight: 400;
@@ -6008,4 +6010,16 @@ Version:1.0
 
 .ti-shopping-cart {
     font-size: 2em;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-modal {
+    margin-top: 5%;
+    width: 60% !important;
+    height: 60% !important;
 }

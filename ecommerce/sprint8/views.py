@@ -67,11 +67,9 @@ class ListarCesta(ListView):
         parametro = self.kwargs.get('pk', None)
         cestas=Cesta.objects.filter(clientes=parametro) 
         context['cestas']= cestas
-        total = 0
-        
+        total = 0        
         for x in cestas:
-               total += x.sub_total       
-
+                total += x.sub_total  
         context['total']=total
         return context
 
