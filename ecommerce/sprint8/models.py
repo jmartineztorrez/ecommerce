@@ -15,7 +15,8 @@ class Categoria(models.Model):
 
 class Producto(models.Model):     
     nombre = models.CharField(max_length=50,null=True)     
-    precio = models.FloatField(null=True)     
+    precio = models.FloatField(null=True) 
+    stock = models.IntegerField(null=True)    
     descripcion = models.CharField(max_length=200,null=True)     
     categorias = models.ForeignKey(Categoria, on_delete=models.CASCADE,null=True, related_name="productos")    
     imagen = models.ImageField(upload_to = 'static/images/', default = 'pic_folder/None/no-img.jpg')
@@ -28,8 +29,20 @@ class Producto(models.Model):
     def __str__(self):         
         return self.nombre  
 
+#tabla temploral
 class Cesta(models.Model): 
     cantidad =models.IntegerField(null=True)  
     productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
-    clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)      
+    clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)  
+    precio=models.FloatField(null=True)
+    total=models.FloatField(null=True)
+    estado=models.BooleanField(default=True,verbose_name='Estado')  
+
+"""class Historial_Venta(models.Model):
+    clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
+    cantidad =models.IntegerField(null=True)
+    precio=models.FloatField(null=True)  """
+
+
 

@@ -14,7 +14,8 @@
                             <th>NOMBRE</th>
                             <th class="text-center">PRECIO UNIT.</th>
                             <th class="text-center">CANTIDAD</th>
-
+                            <th class="text-center">TOTAL</th>
+                            
                             <!-- <th class="text-center"><i class="ti-pencil-alt remove-icon"></i></th> -->
                             <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                         </tr>
@@ -36,10 +37,8 @@
                                 </div>
                                 <!--/ End Input Order -->
                             </td>
-
-                            <!-- <td class="action" data-title="Remove">
-							
-								</td> -->
+                            
+                            <td class="price" data-title="Price"><span>{{carrito.total}} € </span></td>
                             <td class="action" data-title="Remove"><a href="{% url 'sprint8:eliminar_cesta' carrito.id %}"><i class="ti-trash remove-icon"></i></a></td>
                         </tr>
 
