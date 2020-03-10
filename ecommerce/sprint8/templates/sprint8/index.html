@@ -107,15 +107,85 @@
             </div>
         </div>
         <!-- End Topbar -->
+        <div class="middle-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-12">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="{% url 'sprint8:index' %}"><img src="{% static 'images/logoT.png' %}" alt="logo" style="height: 5em; width: 6em;"></a>
+                        </div>
+                        <!--/ End Logo -->
+                        <!-- Search Form -->
+                        <div class="search-top">
+                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                            <!-- Search Form -->
+                            <div class="search-top">
+                                <form class="search-form">
+                                    <input type="text" placeholder="Buscar" name="buscar">
+                                    <button value="search" type="submit"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                            <!--/ End Search Form -->
+                        </div>
+                        <!--/ End Search Form -->
+                        <div class="mobile-nav"></div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-12">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                                <form>
+                                    <input name="search" placeholder="Buscar" type="Buscar">
+                                    <button class="btnn"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-12">
+                        <div class="right-bar">
+                            <!-- Search Form -->
+                            <div class="sinlge-bar shopping">
+                                <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+                                <!-- Shopping Item -->
+                                <div class="shopping-item">
+                                    <div class="dropdown-cart-header">
+                                        <span>2 Items</span>
+                                        <a href="#">View Cart</a>
+                                    </div>
+                                    <ul class="shopping-list">
+                                        <li>
+                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                            <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                            <h4><a href="#">Woman Ring</a></h4>
+                                            <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                            <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                            <h4><a href="#">Woman Necklace</a></h4>
+                                            <p class="quantity">1x - <span class="amount">$35.00</span></p>
+                                        </li>
+                                    </ul>
+                                    <div class="bottom">
+                                        <div class="total">
+                                            <span>Total</span>
+                                            <span class="total-amount">$134.00</span>
+                                        </div>
+                                        <a href="checkout.html" class="btn animate">Checkout</a>
+                                    </div>
+                                </div>
+                                <!--/ End Shopping Item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Header Inner -->
         <div class="header-inner">
             <div class="container">
                 <div class="cat-nav-head">
                     <div class="row">
-                        <div class="logosection col-lg-2 col-2">
-                            <a href="{% url 'sprint8:index' %}"><img src="{% static 'images/logoT.png' %}" alt="logo" style="height: 50px; margin-top: 11px"></a>
-                        </div>
-
                         <div class="col-lg-3 col-3">
                             {% block bodyCategorias %}
                             <div class="all-category">
@@ -150,7 +220,6 @@
                             <a href="#" class="single-icon"><i class="ti-shopping-cart" style="color: orange;"></i></a>
                             <!-- Shopping Item -->
                             <div class="shopping-item">
-
                                 <ul class="shopping-list">
                                     {% for carrito in cestas %}
                                     <li>
@@ -167,8 +236,8 @@
                                         <span class="total-amount">$134.00</span>
                                     </div>
                                     {% endfor %} {% if user.is_authenticated %}
-                                    <a href="{% url 'sprint8:cesta' user.id %}" class="btn animate">IR A CESTA</a> {% else %}
-                                    <a href="{% url 'sprint8:login' %}" class="btn animate">IR A CESTA</a> {% endif %}
+                                    <a href="{% url 'sprint8:cesta' user.id %}" class="btn">IR A CESTA</a> {% else %}
+                                    <a href="{% url 'sprint8:login' %}" class="btn">IR A CESTA</a> {% endif %}
                                 </div>
                             </div>
                             {% endblock bodyCesta %}
