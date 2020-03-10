@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import *
+from django.db import models
 
 #from .forms import ProductoForm
 
@@ -96,6 +97,7 @@ def logoutUsuario(request):
         logout(request)
         return HttpResponseRedirect('accounts/login/')
 
+#Elimina el producto de la cesta
 class eliminarCesta(DeleteView):
         model=Cesta
         success_url = reverse_lazy('sprint8:index')
@@ -103,6 +105,7 @@ class eliminarCesta(DeleteView):
         def get(self, request, *args, **kwargs):
                 return self.post(request, *args, **kwargs)
 
+#elimina toda la cesta
 class limpiarCesta(View):
         model=Cesta
        
@@ -125,10 +128,7 @@ class EditarCesta(UpdateView):
                 context = super().get_context_data(**kwargs)
                 context['cestas'] = Cesta.objects.filter(id = 'pk')
                 return context
-
         
-
-    
         def form_valid(self,form):
 
                 self.object = form.save(commit=False)
@@ -138,3 +138,7 @@ class EditarCesta(UpdateView):
                 self.object.clientes = usuario
                 self.object.save()
                 return super(AgregarProductoCesta,self).form_valid(form)
+
+class Calculo():
+        pass
+
