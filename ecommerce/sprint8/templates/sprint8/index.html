@@ -144,12 +144,6 @@
                     <div class="col-lg-2 col-md-3 col-12">
                         <div class="right-bar">
                             <!-- Search Form -->
-                            <div class="sinlge-bar">
-                                <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="sinlge-bar">
-                                <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-                            </div>
                             <div class="sinlge-bar shopping">
                                 <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
                                 <!-- Shopping Item -->
@@ -226,7 +220,6 @@
                             <a href="#" class="single-icon"><i class="ti-shopping-cart" style="color: orange;"></i></a>
                             <!-- Shopping Item -->
                             <div class="shopping-item">
-
                                 <ul class="shopping-list">
                                     {% for carrito in cestas %}
                                     <li>
@@ -243,8 +236,8 @@
                                         <span class="total-amount">$134.00</span>
                                     </div>
                                     {% endfor %} {% if user.is_authenticated %}
-                                    <a href="{% url 'sprint8:cesta' user.id %}" class="btn animate">IR A CESTA</a> {% else %}
-                                    <a href="{% url 'sprint8:login' %}" class="btn animate">IR A CESTA</a> {% endif %}
+                                    <a href="{% url 'sprint8:cesta' user.id %}" class="btn">IR A CESTA</a> {% else %}
+                                    <a href="{% url 'sprint8:login' %}" class="btn">IR A CESTA</a> {% endif %}
                                 </div>
                             </div>
                             {% endblock bodyCesta %}
