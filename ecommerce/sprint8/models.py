@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User 
+from datetime import date
 # Create your models here. 
 
 class Categoria(models.Model):     
@@ -37,11 +38,18 @@ class Cesta(models.Model):
     sub_total=models.FloatField(null=True)
     estado=models.BooleanField(default=True,verbose_name='Estado')  
 
-"""class Historial_Venta(models.Model):
+#inicia historial de venta 
+class Factura(models.Model):
     clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    fecha= models.DateTimeField(auto_now_add=True, auto_now=False)
+
+class Detalle_Factura(models.Model):
+    cantidad =models.IntegerField(null=True)  
     productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
-    cantidad =models.IntegerField(null=True)
-    precio=models.FloatField(null=True)  """
+    clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)  
+    sub_total=models.FloatField(null=True)
+    estado=models.BooleanField(default=True,verbose_name='Estado')  
+    codFact=models.ForeignKey(Factura,on_delete=models.CASCADE,null=True) 
 
 
 
