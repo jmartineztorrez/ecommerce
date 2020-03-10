@@ -34,8 +34,7 @@ class Cesta(models.Model):
     cantidad =models.IntegerField(null=True)  
     productos=models.ForeignKey(Producto,on_delete=models.CASCADE,null=True)
     clientes=models.ForeignKey(User,on_delete=models.CASCADE,null=True)  
-    precio=models.FloatField(null=True)
-    total=models.FloatField(null=True)
+    sub_total=models.FloatField(null=True)
     estado=models.BooleanField(default=True,verbose_name='Estado')  
 
 """class Historial_Venta(models.Model):

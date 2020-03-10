@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import *
-from django.db import models
+
 
 #from .forms import ProductoForm
 
@@ -52,6 +52,7 @@ class AgregarProductoCesta(CreateView):
         usuario = User.objects.get(pk = self.kwargs.get('id',None))
         self.object.productos = producto
         self.object.clientes = usuario
+        self.object.sub_total = producto.precio * self.object.cantidad
         self.object.save()
         return super(AgregarProductoCesta,self).form_valid(form)
 
@@ -60,11 +61,18 @@ class ListarCesta(ListView):
     template_name='sprint8/cesta.html'
     context_object_name = 'categorias'
     queryset = Categoria.objects.all()
-
+    
     def get_context_data(self, **kwargs):
         context=super(ListarCesta, self).get_context_data(**kwargs)
         parametro = self.kwargs.get('pk', None)
-        context['cestas']=Cesta.objects.filter(clientes=parametro)
+        cestas=Cesta.objects.filter(clientes=parametro) 
+        context['cestas']= cestas
+        total = 0
+        
+        for x in cestas:
+               total += x.sub_total       
+
+        context['total']=total
         return context
 
 #Usuario
@@ -140,6 +148,4 @@ class EditarCesta(UpdateView):
                 self.object.save()
                 return super(AgregarProductoCesta,self).form_valid(form)
 
-class Calculo():
-        pass
 

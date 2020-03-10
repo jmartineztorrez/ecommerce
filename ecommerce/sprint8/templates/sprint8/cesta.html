@@ -14,7 +14,7 @@
                             <th>NOMBRE</th>
                             <th class="text-center">PRECIO UNIT.</th>
                             <th class="text-center">CANTIDAD</th>
-                            <th class="text-center">TOTAL</th>
+                            <th class="text-center">SUB-TOTAL</th>
                             
                             <!-- <th class="text-center"><i class="ti-pencil-alt remove-icon"></i></th> -->
                             <th class="text-center"><i class="ti-trash remove-icon"></i></th>
@@ -38,9 +38,11 @@
                                 <!--/ End Input Order -->
                             </td>
                             
-                            <td class="price" data-title="Price"><span>{{carrito.total}} € </span></td>
+                            <td class="price" data-title="Price"><span>{{carrito.sub_total}} € </span></td>
                             <td class="action" data-title="Remove"><a href="{% url 'sprint8:eliminar_cesta' carrito.id %}"><i class="ti-trash remove-icon"></i></a></td>
-                        </tr>
+                        </tr>                      
+                       
+
 
                         {% endfor %}
                     </tbody>
@@ -61,10 +63,12 @@
                         <div class="col-lg-4 col-md-7 col-12">
                             <div class="right">
                                 <ul>
-                                    <li>Subtotal<span>La suma que no hemos hecho €</span></li>
+                                    <li>Subtotal
+                                        <span>{{total}}</span>
+                                    </li>
                                     <li>Envío<span>Gratis</span></li>
-                                    <li>Te ahorras<span>0€</span></li>
-                                    <li class="last">Su Pago<span>El total que no hemos hecho €</span></li>
+                                    <li>Te ahorras<span>10%</span></li>
+                                    <li class="last">Su Pago<span>{{total}} €</span></li>
                                 </ul>
                                 <div class="button5">
                                     <a href="{% url 'sprint8:limpiar_cesta'%}" class="btn" id="btnPagar">Pagar</a>
